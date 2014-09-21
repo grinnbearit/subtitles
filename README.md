@@ -28,14 +28,14 @@ Uses [org.joda.time.Period](http://joda-time.sourceforge.net/apidocs/org/joda/ti
 
 Leiningen:
 
-    [subtitles "0.1.0"]
+    [subtitles "0.1.1"]
 
 Maven:
 
     <dependency>
       <groupId>subtitles</groupId>
       <artifactId>subtitles</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
     </dependency>
 
 ## License

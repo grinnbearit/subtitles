@@ -14,10 +14,10 @@
                        (Integer/parseInt s)
                        (Integer/parseInt ms))))]
 
-    (for [[ctr tmng txt] (->> (BufferedReader. reader)
-                              (line-seq)
-                              (filter seq)
-                              (partition 3))
+    (for [[ctr tmng & txt] (->> (BufferedReader. reader)
+                                (line-seq)
+                                (partition-by (partial = ""))
+                                (remove (partial = [""])))
           :let [counter (Integer/parseInt (re-find #"\d+" ctr))
                 [_ strt nd] (re-find #"([^\s]+) --> ([^\s]+)" tmng)
                 start (parse-timing strt)
@@ -62,4 +62,4 @@
                           (:counter section)
                           (period->str (:start section))
                           (period->str (:end section))
-                          (:text section)))))))
+                          (str/join "\n" (:text section))))))))

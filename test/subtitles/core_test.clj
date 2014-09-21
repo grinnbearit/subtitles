@@ -8,11 +8,12 @@
 (def ^{:private true} sample
   "1
 00:01:00,000 --> 00:02:00,000
-A minute passes
+- A minute passes
 
 2
 00:02:00,000 --> 00:03:00,000
-A another minute passes")
+- Another minute passes
+- ...")
 
 
 (facts
@@ -21,11 +22,12 @@ A another minute passes")
  => [{:counter 1
       :start (Period. 0 1 0 0)
       :end (Period. 0 2 0 0)
-      :text "A minute passes"}
+      :text ["- A minute passes"]}
      {:counter 2
       :start (Period. 0 2 0 0)
       :end (Period. 0 3 0 0)
-      :text "A another minute passes"}])
+      :text ["- Another minute passes"
+             "- ..."]}])
 
 
 (facts

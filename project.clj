@@ -1,4 +1,4 @@
-(defproject subtitles "0.1.0"
+(defproject subtitles "0.1.1"
   :description "Reads and Writes the srt format"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
