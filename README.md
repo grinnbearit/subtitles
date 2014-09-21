@@ -4,8 +4,6 @@ A Clojure library to read and write the srt subtitle format
 
 ## Usage
 
-conforms to the protocol set by [clojure/clojure.data.csv](https://github.com/clojure/data.csv)
-
     (require '[subtitles.core :as srt])
 
 Get a lazy seq of maps from an srt file:
@@ -14,11 +12,12 @@ Get a lazy seq of maps from an srt file:
 
 or directly from a string:
 
-    (srt/read-subtitles "1\n01:00:00,000 --> 02:00:00,000\nspeech\n")
+    (srt/read-subtitles "1\n01:00:00,000 --> 02:00:00,000\n- speech\n- more speech\n")
     => ({:counter 1
          :start (Period. 1 0 0 0)
          :end (Period. 2 0 0 0)
-         :text "speech"})
+         :text ["- speech"
+                "- more speech"]})
 
 or from anything that implements `Read-Subtitles-From`, really
 
